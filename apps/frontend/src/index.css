@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: 600; */
+  font-style: normal;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+  @apply w-full border my-1 py-2 px-3 rounded-2xl;
+}
+
+button.primary {
+  @apply bg-primary p-2 w-full text-white rounded-2xl;
+}
+
+svg {
+  width: 24px;
+  height: 24px;
+  fill: rgb(15, 191, 35);
+  color: white;
+}
+
+.p-icon {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.p-image img {
+  width: 100%;
+  height: 100%;
+}

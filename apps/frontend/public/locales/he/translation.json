@@ -1,0 +1,42 @@
+{
+  "hi": "welcome",
+  "NAV-BAR": {
+    "Search": {
+      "anywhere": "בכל מקום",
+      "any-week": "כל שבוע",
+      "add-guests": "הוסף אורחים"
+    },
+    "User-menu": {
+      "Book-it-your-home": "Book-it הבית שלך",
+      "Login": {
+        "login": "התחברות",
+        "title": "ברוך שובך",
+        "subtitle": "היכנס לחשבון שלך",
+        "email": "אימייל",
+        "password": "סיסמה",
+        "continue": "להמשיך",
+        "create-account": "צור חשבון?",
+        "LoggedIn": {
+          "my-trip": "הטיול שלי",
+          "my-favorites": "המועדפים שלי",
+          "my-reservations": "ההסתייגויות שלי",
+          "my-properties": "הנכסים שלי",
+          "logout": "להתנתק"
+        }
+      },
+      "Sign-up": {
+        "registration": "הרשםה",
+        "sign-up": "לשיר",
+        "title": "ברוכים הבאים",
+        "subtitle": "תיצור את המשתמש שלך",
+        "name": "שֵׁם",
+        "email": "אימייל",
+        "password": "סיסמה",
+        "continue": "לְהַמשִׁיך",
+        "continue-google": "להמשיך עם גוגל",
+        "continue-github": "המשך עם github",
+        "already-have-account": "כבר יש לך חשבון?"
+      }
+    }
+  }
+}
