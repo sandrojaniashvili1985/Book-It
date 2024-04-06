@@ -1,4 +1,3 @@
-"use client";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
