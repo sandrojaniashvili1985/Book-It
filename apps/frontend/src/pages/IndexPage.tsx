@@ -25,8 +25,14 @@ const IndexPage = () => {
               <Link to={"/" + hotel._id}>
                 <ItemWithoutThumbnailsDemo id={hotel._id} />
               </Link>
-              <h1 className=" rubik text-base font-semibold my-3">
+              <h1 className=" rubik text-base font-semibold my-2">
                 {hotel.address}
+              </h1>
+              <h1 className="">
+                <span className="text-sm font-bold mr-2">
+                  Price: ₪{hotel.cheapestPrice}
+                </span>
+                <span className="ml-2">per night</span>
               </h1>
             </div>
           </div>

@@ -8,7 +8,7 @@ import useRegisterModel from "../hooks/useRegisterModel";
 import useLoginModel from "../hooks/useLoginModel";
 import useMenuModel from "../hooks/useMenuModel";
 import useLanguageModel from "../hooks/useLanguageModel";
-import { useAuth } from "@/context/AuthContext";
+import { useAuthStore } from "@/components/hooks/useAuthStore";
 
 function UserMenu() {
   const { t } = useTranslation();
@@ -17,7 +17,7 @@ function UserMenu() {
   const languageModel = useLanguageModel();
   const userMenuModel = useMenuModel();
 
-  const { isLoggedIn, logout } = useAuth();
+  const { isLoggedIn, logout } = useAuthStore();
 
   const toggleOpen = () => {
     userMenuModel.onOpen();

@@ -40,7 +40,7 @@ function RegisterModel() {
       const res = await axios.post("/api/auth/register", data);
       toast.success(res.data.massage);
       loginModel.onClose();
-      navigate("/loginPage");
+      navigate("/");
     } catch (error) {
       toast.error(error.response.data);
     } finally {

@@ -5,6 +5,7 @@ import { Image } from "primereact/image";
 import Heading from "@/components/ui/Heading";
 import DatePicker from "./DatePicker";
 import AddGusts from "./AddGusts";
+import { useNavigate } from "react-router-dom";
 
 import {
   FaDoorClosed,
@@ -15,9 +16,11 @@ import {
   FaWifi,
 } from "react-icons/fa";
 import Button from "@/components/ui/Button";
+import useDatePiker from "@/components/hooks/useDatePiker";
 
 const SinglePlace = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [singlePlace, setSinglePlace] = useState({
     owner: "",
     _id: "",
@@ -25,10 +28,11 @@ const SinglePlace = () => {
     address: "",
     title: "",
     description: "",
-    price: 0,
     rating: 0,
     photos: [],
+    cheapestPrice: 0,
   });
+
   useEffect(() => {
     const fetchSinglePlace = async () => {
       const { data } = await axios.get("/api/hotels/" + id);
@@ -36,6 +40,21 @@ const SinglePlace = () => {
     };
     fetchSinglePlace();
   }, [id]);
+
+  const { date, checkIn, checkOut } = useDatePiker();
+  const handleReserve = () => {
+    if (!checkIn || !checkOut) return alert("Please select date range");
+    const data = {
+      hotel: singlePlace._id,
+      daysOfStay: date,
+      checkIn,
+      checkOut,
+      amount: singlePlace.cheapestPrice * date,
+    };
+    console.log("data", data);
+    navigate("/account/booking");
+    return axios.post("/api/booking", data);
+  };
 
   return (
     <div className="m-10">
@@ -63,13 +82,17 @@ const SinglePlace = () => {
               <div className="py-4">
                 <h4 className="text-2xl ">{singlePlace.address}</h4>
               </div>
-              <div className="flex justify-center items-center">
+              <div className="flex  items-center">
+                <h1 className="text-xl font-semibold">
+                  Price: ₪{singlePlace.cheapestPrice} per night
+                </h1>
+              </div>
+              <div className=" mt-4">
+                <h1 className=" font-semibold text-xl">DESCRIPTION:</h1>
                 <h1 className="">{singlePlace.description}</h1>
               </div>
-              <div className="flex justify-center items-center">
-                <h1 className="text-xl font-semibold">{singlePlace.price}</h1>
-              </div>
-              <div className="flex justify-center items-center">
+
+              <div className="flex justify-center items-center ">
                 <h1 className="text-xl font-semibold">{singlePlace.rating}</h1>
               </div>
               <div className=" border-t-[1px] border-neutral-300 my-4">
@@ -97,7 +120,7 @@ const SinglePlace = () => {
             {/* date picker and pay */}
             <div className="  ml-10 relative min-w-max rounded-lg shadow-2xl px-2 flex flex-col gap-4">
               <h2 className=" font-bold text-xl mt-4">
-                ₪45,303
+                ₪{singlePlace.cheapestPrice}
                 <span className="ml-2 text-base font-extralight">night</span>
               </h2>
 
@@ -107,7 +130,7 @@ const SinglePlace = () => {
               </div>
               <AddGusts />
               <div className=" mb-6">
-                <Button label="Reserve" onClick={() => {}} />
+                <Button label="Reserve" onClick={handleReserve} />
               </div>
             </div>
           </div>

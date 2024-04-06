@@ -1,6 +1,6 @@
 import User from "../model/users.model";
 import * as bcrypt from "bcrypt";
-import { accessToken } from "../middleware/verify.token";
+import { accessToken, verifyToken } from "../middleware/verify.token";
 
 export const register = async (req, res, next) => {
   const { password, username, email } = req.body;

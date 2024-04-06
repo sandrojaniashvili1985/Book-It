@@ -2,11 +2,12 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { FaUserCircle, FaList } from "react-icons/fa";
 import { MdPlace } from "react-icons/md";
 import PlacesPage from "./PlacesPage";
+import BookingPage from "./BookingPage";
 import { useAuthStore } from "@/components/hooks/useAuthStore";
 
 const AccountPage = () => {
   const { subpage = "profile" } = useParams();
-  const { user, logout, setIsLoggedOut } = useAuthStore();
+  const { user, logout } = useAuthStore();
   const navigate = useNavigate();
 
   return (
@@ -108,7 +109,6 @@ const AccountPage = () => {
                 <button
                   onClick={() => {
                     logout();
-                    setIsLoggedOut();
                     navigate("/");
                   }}
                   className=" bg-primary hover:bg-blue-500 text-white px-6 py-2 rounded-full mt-4 "
@@ -119,7 +119,7 @@ const AccountPage = () => {
             </div>
           </div>
         ) : subpage === "bookings" ? (
-          <div>bookings</div>
+          <BookingPage />
         ) : (
           <PlacesPage />
         )}

@@ -39,6 +39,7 @@ function UserMenu() {
           icon: "",
           command: () => {
             console.log("My Reservations clicked");
+            navigate("/account/bookings");
           },
         },
         {
@@ -46,6 +47,7 @@ function UserMenu() {
           icon: "",
           command: () => {
             console.log("My Properties clicked");
+            navigate("/account/profile");
           },
         },
         {

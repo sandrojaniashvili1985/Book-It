@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { error } from "node:console";
 
 export const connectDB = async () => {
   await mongoose.connect(
