@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import ItemWithoutThumbnailsDemo from "@/components/ItemThumbnailsDemo";
-
 import axios from "axios";
 
 const BookingPage = () => {
@@ -40,12 +39,16 @@ const BookingPage = () => {
         <div className="">
           <h1 className="rubik text-3xl font-semibold my-4">Booking Details</h1>
           <div className="m-4">
-            <h1 className="text-xl font-semibold">Check In:</h1>
-            <p>{booking[0]?.checkIn}</p>
+            <h1 className="text-xl font-semibold inline-block mr-2">
+              Check In:
+            </h1>
+            <span>{booking[0]?.checkIn.split("T")[0]}</span>
           </div>
           <div className="m-4">
-            <h1 className="text-xl font-semibold">Check Out:</h1>
-            <p>{booking[0]?.checkOut}</p>
+            <h1 className="text-xl font-semibold inline-block mr-2">
+              Check Out:
+            </h1>
+            <span>{booking[0]?.checkOut.split("T")[0]}</span>
           </div>
           <div className="m-4">
             <h1 className="text-xl font-semibold">
@@ -53,8 +56,8 @@ const BookingPage = () => {
             </h1>
           </div>
           <div className="m-4">
-            <h1 className="text-xl font-semibold">Amount:</h1>
-            <p>{booking[0]?.amount}</p>
+            <h1 className="text-xl font-semibold inline-block mr-2">Amount:</h1>
+            <span>₪{booking[0]?.amount}</span>
           </div>
         </div>
       ) : (
