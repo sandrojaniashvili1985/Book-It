@@ -1,5 +1,16 @@
 {
   "buildCommand": "npm install && npm run build",
   "outputDirectory": ".",
-  "framework": "vite"
+  "functions": {
+    "api": {
+      "runtime": "vercel-node@2.0.0",
+      "target": "npm start"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "api"
+    }
+  ]
 }
