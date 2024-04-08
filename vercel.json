@@ -3,8 +3,7 @@
   "outputDirectory": ".",
   "functions": {
     "api": {
-      "runtime": "vercel-node@2.0.0",
-      "target": "npm start"
+      "runtime": "vercel-node@2.0.0"
     }
   },
   "routes": [
