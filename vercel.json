@@ -9,6 +9,10 @@
   },
   "rewrites": [
     {
+      "source": "/api/(.*)",
+      "destination": "/api/my-api-function"
+    },
+    {
       "source": "/apps/backend/(.*)",
       "destination": "/apps/backend/server.ts"
     },
