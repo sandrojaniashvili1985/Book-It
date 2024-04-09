@@ -1,15 +1,20 @@
 {
-  "buildCommand": "npm install && npm run build",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
   "outputDirectory": ".",
   "functions": {
     "api": {
       "runtime": "vercel-node@2.0.0"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "api"
+      "source": "/apps/backend/(.*)",
+      "destination": "/apps/backend/server.ts"
+    },
+    {
+      "source": "/apps/frontend/(.*)",
+      "destination": "/apps/frontend/index.html"
     }
   ]
 }
