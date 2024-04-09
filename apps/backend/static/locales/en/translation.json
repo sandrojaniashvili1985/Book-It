@@ -1,0 +1,43 @@
+{
+  "hi": "welcome",
+  "NAV-BAR": {
+    "Search": {
+      "anywhere": "Anywhere",
+      "any-week": "Any Week",
+      "add-guests": "Add Guests"
+    },
+    "User-menu": {
+      "Book-it-your-home": "Book-it your home",
+      "Login": {
+        "login": "Login",
+        "title": "Welcome back",
+        "subtitle": "Log in your account",
+        "email": "Email",
+        "password": "Password",
+        "continue": "Continue",
+        "create-account": "Create an account?",
+        "LoggedIn": {
+          "my-trip": "My trip",
+          "my-favorites": "My favorites",
+          "my-reservations": "My reservations",
+          "my-properties": "My properties",
+          "logout": "Log out",
+          "account": "Account"
+        }
+      },
+      "Sign-up": {
+        "registration": "Registration",
+        "sign-up": "Sing up",
+        "title": "Welcome to Book-It",
+        "subtitle": "Create your account",
+        "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "continue": "Continue",
+        "continue-google": "continue with google",
+        "continue-github": "continue with github",
+        "already-have-account": "already have account??"
+      }
+    }
+  }
+}
