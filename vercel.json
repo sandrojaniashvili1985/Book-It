@@ -1,6 +1,6 @@
 {
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
+  "installCommand": "cd apps/frontend && cd apps/backend && npm install",
+  "buildCommand": "cd apps/frontend && npm run build && cd apps/backend && npm run build",
   "outputDirectory": ".",
   "functions": {
     "api": {
