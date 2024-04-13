@@ -9,9 +9,6 @@ export default defineConfig({
       "/api": "https://book-it-backend.vercel.app",
     },
   },
-  // build: {
-  //   outDir: "../backend/static",
-  // },
   resolve: {
     alias: {
       "@": "/src",

@@ -11,7 +11,6 @@ const IndexPage = () => {
     const AllHotelsData = async () => {
       const { data } = await axios.get("/api/hotels/");
       setHotels(data);
-      console.log("hotels", data);
     };
     AllHotelsData();
   }, []);
