@@ -24,10 +24,6 @@ app.use((req, res, next) => {
     "https://book-it-frontend-three.vercel.app"
   );
   // Adjust other CORS headers as needed
-  // Adjust other CORS headers as needed
-  // Adjust other CORS headers as needed
-  // Adjust other CORS headers as needed
-
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -47,6 +43,10 @@ app.use(
 );
 
 app.use("/", (req, res) => {
+  res.send("server is running...");
+});
+
+app.get("/", (req, res) => {
   res.send("server is running...");
 });
 
