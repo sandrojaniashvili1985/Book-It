@@ -72,14 +72,14 @@ export async function getHotelByOwner(req, res, next) {
   }
 }
 
-const __dirname = path.resolve();
+const dirname = path.resolve();
 export async function uploadPhotoByLink(req, res, next) {
   const { link } = req.body;
   const newName = "photo" + Date.now() + ".jpg";
   try {
     await download.image({
       url: link,
-      dest: __dirname + "\\uploads\\" + newName,
+      dest: dirname + "\\uploads\\" + newName,
     });
     res.status(200).json(newName);
   } catch (error) {
