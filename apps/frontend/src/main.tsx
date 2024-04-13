@@ -6,7 +6,7 @@ import "./index.css";
 import React from "react";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://book-it-app-six.vercel.app";
+axios.defaults.baseURL = "https://book-it-frontend-three.vercel.app";
 
 const routes = createBrowserRouter(route);
 
