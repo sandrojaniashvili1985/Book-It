@@ -9,9 +9,9 @@ export default defineConfig({
       "/api": "http://localhost:5000",
     },
   },
-  build: {
-    outDir: "../backend/static",
-  },
+  // build: {
+  //   outDir: "../backend/static",
+  // },
   resolve: {
     alias: {
       "@": "/src",
