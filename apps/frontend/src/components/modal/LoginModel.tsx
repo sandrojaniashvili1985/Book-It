@@ -39,7 +39,7 @@ function LoginModel() {
       const res = await axios.post("/api/auth/login", data, {
         withCredentials: true,
       });
-      console.log("res.headers", res.headers);
+      console.log("res", res);
       login(res);
       setUser(res.data);
       toast.success(`welcome ${res.data?.username}`);
