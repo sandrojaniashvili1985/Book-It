@@ -29,14 +29,13 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", "true");
   next();
 });
+app.use(router);
 
 app.use("/api/hotels/uploads", express.static(__dirname + "\\uploads"));
 
 app.use("/", (req, res) => {
   res.send("server is running...");
 });
-
-app.use(router);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
