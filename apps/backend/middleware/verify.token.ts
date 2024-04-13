@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import { createError } from "../utils/error";
-import User from "../model/users.model";
-import Hotel from "../model/hotel.model";
+import User from "../model/Users.model";
+import Hotel from "../model/Hotel.model";
 
 const SECRET = process.env.JWT_SECRET || "VERY-TOP-SECRET";
 const expiresIn = "90d";

@@ -6,5 +6,5 @@ export const connectDB = async () => {
   );
   console.log("Connected to MongoDB");
 
-  import("./users.model");
+  import("./Users.model");
 };
