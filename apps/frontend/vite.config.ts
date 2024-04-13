@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "https://book-it-backend.vercel.app/",
+      "/api": "https://book-it-backend.vercel.app",
     },
   },
   // build: {

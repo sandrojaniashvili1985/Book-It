@@ -4,6 +4,9 @@ import { route } from "./routes.tsx";
 import "./lib/i18n";
 import "./index.css";
 import React from "react";
+import axios from "axios";
+
+axios.defaults.baseURL = "https://book-it-app-six.vercel.app";
 
 const routes = createBrowserRouter(route);
 
