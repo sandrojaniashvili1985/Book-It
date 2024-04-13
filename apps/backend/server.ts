@@ -14,14 +14,14 @@ app.use(cookieParser());
 app.use(morgan("tiny"));
 app.use(
   cors({
-    origin: "https://book-it-frontend-three.vercel.app",
+    origin: "https://book-it-backend.vercel.app",
     credentials: true,
   })
 );
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://book-it-frontend-three.vercel.app"
+    "https://book-it-backend.vercel.app"
   );
   // Adjust other CORS headers as needed
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
