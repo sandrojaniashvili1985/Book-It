@@ -16,6 +16,10 @@ app.use(morgan("tiny"));
 
 app.use("/api/hotels/uploads", express.static(__dirname + "\\uploads"));
 
+app.use("/", (req, res) => {
+  res.send("server is running...");
+});
+
 app.use(router);
 
 app.use((err, req, res, next) => {
