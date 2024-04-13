@@ -1,5 +1,5 @@
-import Rooms from "../model/rooms.model";
-import Hotel from "../model/hotel.model";
+import Rooms from "../model/Rooms.model";
+import Hotel from "../model/Hotel.model";
 import { createError } from "../utils/error";
 
 export async function createRoom(req, res, next) {

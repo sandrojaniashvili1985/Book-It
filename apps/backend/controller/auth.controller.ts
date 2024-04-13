@@ -1,4 +1,4 @@
-import User from "../model/users.model";
+import User from "../model/Users.model";
 import * as bcrypt from "bcrypt";
 import { accessToken, verifyToken } from "../middleware/verify.token";
 

@@ -1,5 +1,5 @@
 import path from "path";
-import Hotel from "../model/hotel.model";
+import Hotel from "../model/Hotel.model";
 import download from "image-downloader";
 import fs from "fs";
 import jwt from "jsonwebtoken";
