@@ -40,6 +40,9 @@ export function verifyToken(req, res, next) {
         userFromDb.token?.r != r ||
         userFromDb.token?.createdAt != createdAt
       ) {
+        console.log("userFromDb", userFromDb);
+        console.log("jwt", { r, createdAt });
+
         return next(createError(403, "Token has expired"));
       }
 
