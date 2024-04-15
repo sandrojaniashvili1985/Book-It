@@ -39,7 +39,7 @@ function LoginModel() {
       const res = await axios.post("/api/auth/login", data, {
         withCredentials: true,
       });
-      console.log("res", res.headers.token);
+      // console.log("res", res.cookies);
 
       login(res);
       setUser(res.data);
