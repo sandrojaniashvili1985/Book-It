@@ -19,6 +19,7 @@ app.use(
   })
 );
 app.use((req, res, next) => {
+  res.set("cache-control", "private, no-store");
   res.setHeader(
     "Access-Control-Allow-Origin",
     "https://book-it-frontend-three.vercel.app"
