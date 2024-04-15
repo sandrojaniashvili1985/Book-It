@@ -35,3 +35,19 @@ export async function getBookings(req, res, next) {
     }
   });
 }
+
+export async function getBookingsForPlace(req, res, next) {
+  const token = req.cookies.token;
+  jwt.verify(token, SECRET, async function (err, decoded) {
+    if (err) {
+      return res.status(403).json("you are not authorized");
+    }
+    try {
+      const bookings = await Booking.find({ hotel: req.params.placeID });
+      res.set("cache-control", "private, no-store");
+      res.status(200).json(bookings);
+    } catch (error) {
+      next(error);
+    }
+  });
+}

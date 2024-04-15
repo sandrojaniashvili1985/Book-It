@@ -51,7 +51,6 @@ const SinglePlace = () => {
       checkOut,
       amount: singlePlace.cheapestPrice * date,
     };
-    console.log("data", data);
     navigate("/account/booking");
     return axios.post("/api/booking", data);
   };
