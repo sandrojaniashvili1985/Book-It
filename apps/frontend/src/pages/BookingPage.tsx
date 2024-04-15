@@ -36,30 +36,36 @@ const BookingPage = () => {
         )}
       </div>
       {booking ? (
-        <div className="">
-          <h1 className="rubik text-3xl font-semibold my-4">Booking Details</h1>
-          <div className="m-4">
-            <h1 className="text-xl font-semibold inline-block mr-2">
-              Check In:
+        booking.map((booking) => {
+          <div className="">
+            <h1 className="rubik text-3xl font-semibold my-4">
+              Booking Details
             </h1>
-            <span>{booking[0]?.checkIn.split("T")[0]}</span>
-          </div>
-          <div className="m-4">
-            <h1 className="text-xl font-semibold inline-block mr-2">
-              Check Out:
-            </h1>
-            <span>{booking[0]?.checkOut.split("T")[0]}</span>
-          </div>
-          <div className="m-4">
-            <h1 className="text-xl font-semibold">
-              Days of Stay: {booking[0]?.daysOfStay}
-            </h1>
-          </div>
-          <div className="m-4">
-            <h1 className="text-xl font-semibold inline-block mr-2">Amount:</h1>
-            <span>₪{booking[0]?.amount}</span>
-          </div>
-        </div>
+            <div className="m-4">
+              <h1 className="text-xl font-semibold inline-block mr-2">
+                Check In:
+              </h1>
+              <span>{booking?.checkIn.split("T")}</span>
+            </div>
+            <div className="m-4">
+              <h1 className="text-xl font-semibold inline-block mr-2">
+                Check Out:
+              </h1>
+              <span>{booking?.checkOut.split("T")}</span>
+            </div>
+            <div className="m-4">
+              <h1 className="text-xl font-semibold">
+                Days of Stay: {booking?.daysOfStay}
+              </h1>
+            </div>
+            <div className="m-4">
+              <h1 className="text-xl font-semibold inline-block mr-2">
+                Amount:
+              </h1>
+              <span>₪{booking?.amount}</span>
+            </div>
+          </div>;
+        })
       ) : (
         <div> No booking found</div>
       )}
