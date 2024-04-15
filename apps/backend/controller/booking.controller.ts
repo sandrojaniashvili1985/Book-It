@@ -29,6 +29,7 @@ export async function getBookings(req, res, next) {
     try {
       const bookings = await Booking.find({ user: decoded.user._id });
       res.status(200).json(bookings);
+      res.set("cache-control", "private, no-store");
     } catch (error) {
       next(error);
     }

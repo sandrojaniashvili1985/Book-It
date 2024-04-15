@@ -48,7 +48,7 @@ export function verifyToken(req, res, next) {
       await userFromDb.save();
     }
     req.user = user;
-    res.set("cache-control", "no-store");
+    res.set("cache-control", "private, no-store");
     next();
   });
 }
