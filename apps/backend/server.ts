@@ -21,7 +21,7 @@ app.use(
 app.use((req, res, next) => {
   res.set(
     "cache-control",
-    "private, no-store, max-age=0, no-cache, must-revalidate, post-check=0, pre-check=0"
+    "private, no-store, max-age=0, no-cache, must-revalidate"
   );
   res.setHeader(
     "Access-Control-Allow-Origin",
