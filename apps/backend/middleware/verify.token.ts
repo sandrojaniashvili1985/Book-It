@@ -21,7 +21,7 @@ export function accessToken(user) {
 }
 
 export function verifyToken(req, res, next) {
-  const validDate = Date.now() - 1000;
+  const validDate = Date.now() - 1000 * 60 * 60 * 24 * 7; // weeks
   const token = req.cookies.token;
 
   if (!token) {
@@ -46,10 +46,6 @@ export function verifyToken(req, res, next) {
       const newToken = accessToken(user);
       userFromDb.token = { r: newToken.r, createdAt: newToken.createdAt };
       await userFromDb.save();
-      res.cookie("token", token.newToken, {
-        httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 24 * 90,
-      });
     }
     req.user = user;
     res.set("cache-control", "private, no-store");
