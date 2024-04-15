@@ -21,7 +21,7 @@ export function accessToken(user) {
 }
 
 export function verifyToken(req, res, next) {
-  const validDate = Date.now() - 1000 * 60 * 25;
+  const validDate = Date.now() - 1000;
   const token = req.cookies.token;
 
   if (!token) {
