@@ -20,8 +20,9 @@ router.get("/:placeID", verifyToken, verifyHotelOwner, getBookingsForPlaceId);
 
 // get bookings for a place visitor or owner
 router.get(
-  "/:placeID/reservationID",
+  "/:placeID/:reservationID",
   verifyToken,
+  verifyHotelOwner,
   getBookingsForPlaceIdAndReservationID
 );
 

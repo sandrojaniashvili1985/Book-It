@@ -77,9 +77,13 @@ export async function getBookingsForPlaceIdAndReservationID(req, res, next) {
       if (!bookings) {
         return res.status(404).json("Reservation not found");
       }
+      const hotel = await HotelModel.findById(req.params.placeID);
+      if (!hotel) {
+        return res.status(404).json("Hotel not found");
+      }
       if (
         bookings[0].user == decoded.user._id ||
-        decoded.user._id == bookings[0].hotel[0].owner
+        decoded.user._id == hotel.owner
       ) {
         res.status(200).json(bookings);
       } else {
