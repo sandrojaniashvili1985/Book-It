@@ -2,7 +2,7 @@ import express from "express";
 import {
   createBooking,
   getBookings,
-  getBookingsForPlace,
+  getBookingsForPlaceId,
 } from "../controller/booking.controller";
 import { verifyToken, verifyHotelOwner } from "../middleware/verify.token";
 
@@ -15,6 +15,6 @@ router.post("/", verifyToken, createBooking);
 router.get("/", verifyToken, getBookings);
 
 // get bookings for a place only for the owner
-router.get("/:placeID", verifyToken, verifyHotelOwner, getBookingsForPlace);
+router.get("/:placeID", verifyToken, verifyHotelOwner, getBookingsForPlaceId);
 
 export default router;

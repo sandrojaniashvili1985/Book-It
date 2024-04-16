@@ -61,7 +61,6 @@ export async function verifyHotelOwner(req, res, next) {
   if (!hotel) {
     return res.status(403).json("You are not authorized");
   }
-
   req.hotel = hotel;
   next();
 }

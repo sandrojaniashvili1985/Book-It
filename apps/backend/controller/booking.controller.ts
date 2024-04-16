@@ -1,4 +1,5 @@
 import Booking from "../model/Booking.model";
+import HotelModel from "../model/Hotel.model";
 import jwt from "jsonwebtoken";
 
 const SECRET = process.env.JWT_SECRET || "VERY-TOP-SECRET";
@@ -36,14 +37,18 @@ export async function getBookings(req, res, next) {
   });
 }
 
-export async function getBookingsForPlace(req, res, next) {
+// get bookings for a place only for the owner "need finish"
+export async function getBookingsForPlaceId(req, res, next) {
   const token = req.cookies.token;
   jwt.verify(token, SECRET, async function (err, decoded) {
     if (err) {
       return res.status(403).json("you are not authorized");
     }
     try {
-      const bookings = await Booking.find({ hotel: req.params.placeID });
+      const bookings = await Booking.find({
+        hotel: req.params.placeID,
+        owner: decoded.user._id,
+      });
       res.set("cache-control", "private, no-store");
       res.status(200).json(bookings);
     } catch (error) {
