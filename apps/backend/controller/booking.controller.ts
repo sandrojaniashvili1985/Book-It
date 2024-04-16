@@ -47,9 +47,14 @@ export async function getBookingsForPlaceId(req, res, next) {
     try {
       const bookings = await Booking.find({
         hotel: req.params.placeID,
-        owner: decoded.user._id,
       });
-      res.set("cache-control", "private, no-store");
+      const hotel = await HotelModel.findById(req.params.placeID);
+      if (!hotel) {
+        return res.status(404).json("Hotel not found");
+      }
+      if (hotel.owner != decoded.user._id) {
+        return res.status(403).json("you are not authorized");
+      }
       res.status(200).json(bookings);
     } catch (error) {
       next(error);
