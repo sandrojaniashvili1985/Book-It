@@ -82,7 +82,7 @@ export async function getBookingsForPlaceIdAndReservationID(req, res, next) {
         return res.status(404).json("Hotel not found");
       }
       if (
-        bookings[0].user == decoded.user._id ||
+        bookings.some((booking) => booking.user == decoded.user._id) ||
         decoded.user._id == hotel.owner
       ) {
         res.status(200).json(bookings);
