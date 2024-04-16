@@ -3,6 +3,7 @@ import {
   createBooking,
   getBookings,
   getBookingsForPlaceId,
+  getBookingsForPlaceIdAndReservationID,
 } from "../controller/booking.controller";
 import { verifyToken, verifyHotelOwner } from "../middleware/verify.token";
 
@@ -16,5 +17,12 @@ router.get("/", verifyToken, getBookings);
 
 // get bookings for a place only for the owner
 router.get("/:placeID", verifyToken, verifyHotelOwner, getBookingsForPlaceId);
+
+// get bookings for a place visitor or owner
+router.get(
+  "/:placeID/reservationID",
+  verifyToken,
+  getBookingsForPlaceIdAndReservationID
+);
 
 export default router;

@@ -37,7 +37,7 @@ export async function getBookings(req, res, next) {
   });
 }
 
-// get bookings for a place only for the owner "need finish"
+// get bookings for a place only for the owner
 export async function getBookingsForPlaceId(req, res, next) {
   const token = req.cookies.token;
   jwt.verify(token, SECRET, async function (err, decoded) {
@@ -56,6 +56,35 @@ export async function getBookingsForPlaceId(req, res, next) {
         return res.status(403).json("you are not authorized");
       }
       res.status(200).json(bookings);
+    } catch (error) {
+      next(error);
+    }
+  });
+}
+
+//  get bookings for a place only visitor or owner
+export async function getBookingsForPlaceIdAndReservationID(req, res, next) {
+  const token = req.cookies.token;
+  jwt.verify(token, SECRET, async function (err, decoded) {
+    if (err) {
+      return res.status(403).json("you are not authorized");
+    }
+    try {
+      const bookings = await Booking.find({
+        hotel: req.params.placeID,
+        _id: req.params.reservationID,
+      });
+      if (!bookings) {
+        return res.status(404).json("Reservation not found");
+      }
+      if (
+        bookings[0].user == decoded.user._id ||
+        decoded.user._id == bookings[0].hotel[0].owner
+      ) {
+        res.status(200).json(bookings);
+      } else {
+        return res.status(403).json("you are not authorized");
+      }
     } catch (error) {
       next(error);
     }
