@@ -1,11 +1,8 @@
-import { useTranslation } from "react-i18next";
-import { BiSearch } from "react-icons/bi";
 import UserMenu from "./UserMenu";
 import { Link } from "react-router-dom";
+import Search from "./navbar/Search";
 
 const Header = () => {
-  const { t } = useTranslation();
-
   return (
     <div className="mt-6 px-10">
       <header className="flex items-center justify-between">
@@ -30,18 +27,7 @@ const Header = () => {
           </Link>
         </div>
         {/* search */}
-        <div className=" flex gap-3 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300">
-          <div className=" border-r-[1px] px-2">
-            {t("NAV-BAR.Search.anywhere")}
-          </div>
-          <div className=" border-r-[1px] px-2">
-            {t("NAV-BAR.Search.any-week")}
-          </div>
-          <div>{t("NAV-BAR.Search.add-guests")}</div>
-          <button className=" bg-primary text-black p-1 rounded-full">
-            <BiSearch size={18} />
-          </button>
-        </div>
+        <Search />
         {/* user menu */}
         <UserMenu />
       </header>
