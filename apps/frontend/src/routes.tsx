@@ -4,6 +4,7 @@ import Layout from "./layout/Layout";
 import IndexPage from "./pages/IndexPage";
 import AccountPage from "./pages/AccountPage";
 import SinglePlace from "./pages/singlePlace/SinglePlace";
+import SearchPage from "./pages/SearchPage";
 
 export const route = [
   {
@@ -33,6 +34,10 @@ export const route = [
       {
         path: "/:id",
         element: <SinglePlace />,
+      },
+      {
+        path: "/search",
+        element: <SearchPage />,
       },
     ],
   },
