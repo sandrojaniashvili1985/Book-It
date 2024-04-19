@@ -26,7 +26,7 @@ const SearchPage = () => {
     <div className="px-10 py-4">
       <Heading title="All Hotels" subtitle="All hotels in one place" center />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-4">
-        {hotels?.map((hotel) => (
+        {hotels.map((hotel) => (
           <div key={hotel._id} className="">
             <div className=" bg-cover bg-center bg-no-repeat rounded-xl mb-10">
               <Link to={"/" + hotel._id}>
