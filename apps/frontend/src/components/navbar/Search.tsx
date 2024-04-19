@@ -87,11 +87,7 @@ export default function Search() {
       command: () => setShowCheckOutCalendar(true),
     },
     {
-      label: `Who${
-        counts.adults + counts.children > 1 && (
-          <p>Guests {counts.adults + counts.children}</p>
-        )
-      }`,
+      label: `Who ${counts.adults + counts.children + counts.infants} Guests`,
 
       icon: "pi pi-users",
       command: () => setShouldShowGuests(!shouldShowGuests), // Add this line
