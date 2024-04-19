@@ -13,7 +13,7 @@ const SearchPage = () => {
 
   useEffect(() => {
     const AllHotelsData = async () => {
-      const { data } = await axios.get(`/api/hotels/country/:${country}`);
+      const { data } = await axios.get(`/api/hotels/country/${country}`);
       setHotels(data);
     };
     AllHotelsData();
