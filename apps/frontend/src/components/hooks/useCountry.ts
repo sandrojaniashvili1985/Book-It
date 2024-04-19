@@ -2,12 +2,12 @@ import { create } from "zustand";
 
 interface useCountryStoreProp {
   country: string;
-  setCity: (country: string) => void;
+  setCountry: (country: string) => void;
 }
 
 export const useCountryStore = create<useCountryStoreProp>((set) => ({
   country: "",
-  setCity: (country) => {
+  setCountry: (country) => {
     set((state) => ({
       country: (state.country = country),
     }));

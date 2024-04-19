@@ -1,7 +1,7 @@
 import { Menubar } from "primereact/menubar";
 import { useState } from "react";
 import { Calendar } from "primereact/calendar";
-import useCityStore from "@/components/hooks/useCountry";
+import useCountryStore from "@/components/hooks/useCountry";
 import { useNavigate } from "react-router-dom";
 
 export default function Search() {
@@ -37,7 +37,7 @@ export default function Search() {
       [type]: prevCounts[type] > 0 ? prevCounts[type] - 1 : 0,
     }));
   };
-  const { setCity } = useCityStore();
+  const { setCountry } = useCountryStore();
   const items = [
     {
       label: `Where ${countries ? countries : ""}`,
@@ -100,7 +100,7 @@ export default function Search() {
       label: "Search",
       icon: "pi pi-search",
       command: () => {
-        setCity(countries);
+        setCountry(countries);
         if (countries == "") {
           return alert("Please select a country");
         }
