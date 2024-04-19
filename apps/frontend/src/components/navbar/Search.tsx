@@ -1,7 +1,7 @@
 import { Menubar } from "primereact/menubar";
 import { useState } from "react";
 import { Calendar } from "primereact/calendar";
-import useCityStore from "../hooks/useCountry";
+import useCityStore from "@/components/hooks/useCountry";
 import { useNavigate } from "react-router-dom";
 
 export default function Search() {
