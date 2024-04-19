@@ -2,6 +2,7 @@ import express from "express";
 import {
   createHotel,
   deleteHotel,
+  getHotelByCountry,
   getHotelById,
   getHotelByOwner,
   getHotels,
@@ -32,6 +33,9 @@ router.get("/", getHotels);
 
 // get hotels by owner id
 router.get("/owner/:id", verifyToken, verifyHotelOwner, getHotelByOwner);
+
+// get hotels by country
+router.get("/city/:country", getHotelByCountry);
 
 router.post("/uploadByLink", uploadPhotoByLink);
 

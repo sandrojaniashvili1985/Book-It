@@ -72,6 +72,15 @@ export async function getHotelByOwner(req, res, next) {
   }
 }
 
+export async function getHotelByCountry(req, res, next) {
+  try {
+    const hotels = await Hotel.find({ city: req.params.city });
+    res.status(200).json(hotels);
+  } catch (error) {
+    next(error);
+  }
+}
+
 const dirname = path.resolve();
 export async function uploadPhotoByLink(req, res, next) {
   const { link } = req.body;
