@@ -40,13 +40,7 @@ export default function Search() {
   const { setCity } = useCityStore();
   const items = [
     {
-      label: (
-        <div>
-          Where
-          <br />
-          {countries ? countries : ""}
-        </div>
-      ),
+      label: `Where ${countries ? countries : ""}`,
       icon: "pi pi-fw pi-map-marker",
       command: () => setSelectWhere(!selectWhere),
       items: [
@@ -78,38 +72,27 @@ export default function Search() {
       ],
     },
     {
-      label: (
-        <div>
-          Check-in
-          <br />
-          {selectedCheckInDate ? selectedCheckInDate.toDateString() : ""}
-        </div>
-      ),
+      label: `Check-in ${
+        selectedCheckInDate ? selectedCheckInDate.toDateString() : ""
+      }`,
       icon: "pi pi-calendar",
       command: () => setShowCheckInCalendar(true),
     },
     {
-      label: (
-        <div>
-          Check-out
-          <br />
-          {selectedCheckOutDate ? selectedCheckOutDate.toDateString() : ""}
-        </div>
-      ),
+      label: `Check-out ${
+        selectedCheckOutDate ? selectedCheckOutDate.toDateString() : ""
+      }`,
 
       icon: "pi pi-calendar",
       command: () => setShowCheckOutCalendar(true),
     },
     {
-      label: (
-        <div>
-          Who
-          <br />
-          {counts.adults + counts.children > 1 && (
-            <p>Guests {counts.adults + counts.children}</p>
-          )}
-        </div>
-      ),
+      label: `Who${
+        counts.adults + counts.children > 1 && (
+          <p>Guests {counts.adults + counts.children}</p>
+        )
+      }`,
+
       icon: "pi pi-users",
       command: () => setShouldShowGuests(!shouldShowGuests), // Add this line
     },
