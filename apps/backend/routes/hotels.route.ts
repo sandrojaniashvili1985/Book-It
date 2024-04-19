@@ -35,7 +35,7 @@ router.get("/", getHotels);
 router.get("/owner/:id", verifyToken, verifyHotelOwner, getHotelByOwner);
 
 // get hotels by country
-router.get("/city/:country", getHotelByCountry);
+router.get("/country/:country", getHotelByCountry);
 
 router.post("/uploadByLink", uploadPhotoByLink);
 
