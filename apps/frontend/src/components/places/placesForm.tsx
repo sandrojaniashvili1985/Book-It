@@ -24,6 +24,7 @@ const PlacesForm = () => {
       type: "",
       name: "",
       title: "",
+      country: "",
       address: "",
       photos: "",
       description: "",
@@ -85,6 +86,16 @@ const PlacesForm = () => {
           errors={errors}
           required
           placeholder="Title (My lovely hotel, etc.)"
+        />
+        <Heading title="Country" subtitle="Country for this place" />
+        <Input
+          id="country"
+          type="text"
+          disabled={loading}
+          register={register}
+          errors={errors}
+          required
+          placeholder="Country of place (USA, etc.)"
         />
         <Heading title="Address" subtitle="Address for this place" />
         <Input
