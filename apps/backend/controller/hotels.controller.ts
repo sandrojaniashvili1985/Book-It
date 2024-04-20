@@ -96,16 +96,23 @@ export async function getHotelByCountry(req, res, next) {
 //   }
 // }
 
-const uploadDir = path.join(__dirname, "uploads");
-
 export async function uploadPhotoByLink(req, res, next) {
   const { link } = req.body;
   const newName = "photo" + Date.now() + ".jpg";
+  const uploadDir = path.join(__dirname, "uploads");
+
   try {
+    // Create the uploads directory if it doesn't exist
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
+    }
+
+    // Download the image
     await download.image({
       url: link,
       dest: path.join(uploadDir, newName),
     });
+
     res.status(200).json(newName);
   } catch (error) {
     next(error);
