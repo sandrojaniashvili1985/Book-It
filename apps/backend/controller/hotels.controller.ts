@@ -96,10 +96,10 @@ export async function getHotelByCountry(req, res, next) {
 //   }
 // }
 
+const uploadDir = path.resolve();
 export async function uploadPhotoByLink(req, res, next) {
   const { link } = req.body;
   const newName = "photo" + Date.now() + ".jpg";
-  const uploadDir = path.join(__dirname, "uploads");
 
   try {
     // Create the uploads directory if it doesn't exist
