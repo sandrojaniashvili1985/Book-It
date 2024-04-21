@@ -33,8 +33,6 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", "true");
   next();
 });
-app.use(router);
-
 const baseUrl = "https://book-it-backend.vercel.app";
 app.use(
   "/api/hotels/uploads",
@@ -44,6 +42,9 @@ app.use(
     },
   })
 );
+
+app.use(router);
+
 // app.use(
 //   "/api/hotels/uploads",
 //   express.static(__dirname + "\\uploads", {
@@ -67,9 +68,6 @@ app.use("/", (req, res) => {
   res.send("server is running...");
 });
 
-app.use(express.static(path.join(__dirname, "static")));
-app.use("*", express.static(path.join(__dirname, "static/index.html")));
-
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
   const errorMessage = err.message || "Internal Server Error";
@@ -81,8 +79,10 @@ app.use((err, req, res, next) => {
   });
 });
 
-const port = process.env.PORT || 3333;
+app.use(express.static(path.join(__dirname, "static")));
+app.use("*", express.static(path.join(__dirname, "static/index.html")));
 
+const port = process.env.PORT || 3333;
 connectDB().catch(() => process.exit(1));
 
 app.listen(port, () => {
