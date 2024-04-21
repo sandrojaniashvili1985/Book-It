@@ -36,27 +36,30 @@ app.use((req, res, next) => {
 app.use(router);
 
 const baseUrl = "https://book-it-backend.vercel.app";
-// app.use(
-//   "/api/hotels/uploads",
-//   express.static(path.join(__dirname, "uploads"), {
-//     setHeaders: (res, filePath) => {
-//       res.setHeader("Access-Control-Allow-Origin", baseUrl);
-//     },
-//   })
-// );
-const uploadDir = path.join(__dirname, "uploads");
 app.use(
   "/api/hotels/uploads",
-  express.static(uploadDir, {
+  express.static(path.join(__dirname, "uploads"), {
     setHeaders: (res, filePath) => {
       res.setHeader("Access-Control-Allow-Origin", baseUrl);
     },
   })
 );
+// const uploadDir = path.join(__dirname, "uploads");
+// app.use(
+//   "/api/hotels/uploads",
+//   express.static(uploadDir, {
+//     setHeaders: (res, filePath) => {
+//       res.setHeader("Access-Control-Allow-Origin", baseUrl);
+//     },
+//   })
+// );
 
 app.use("/", (req, res) => {
   res.send("server is running...");
 });
+
+app.use(express.static(path.join(__dirname, "static")));
+app.use("*", express.static(path.join(__dirname, "static/index.html")));
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
@@ -68,9 +71,6 @@ app.use((err, req, res, next) => {
     stack: err.stack,
   });
 });
-
-app.use(express.static(path.join(__dirname, "static")));
-app.use("*", express.static(path.join(__dirname, "static/index.html")));
 
 const port = process.env.PORT || 3333;
 

@@ -81,43 +81,43 @@ export async function getHotelByCountry(req, res, next) {
   }
 }
 
-// const dirname = path.resolve();
-// export async function uploadPhotoByLink(req, res, next) {
-//   const { link } = req.body;
-//   const newName = "photo" + Date.now() + ".jpg";
-//   try {
-//     await download.image({
-//       url: link,
-//       dest: dirname + "\\uploads\\" + newName,
-//     });
-//     res.status(200).json(newName);
-//   } catch (error) {
-//     next(error);
-//   }
-// }
-
+const dirname = path.resolve();
 export async function uploadPhotoByLink(req, res, next) {
   const { link } = req.body;
   const newName = "photo" + Date.now() + ".jpg";
-  const uploadDir = path.join(__dirname, "uploads"); // __dirname + "/uploads"; is problematic
-
   try {
-    // Create the uploads directory if it doesn't exist
-    if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir, { recursive: true });
-    }
-
-    // Download the image
     await download.image({
       url: link,
-      dest: path.join(uploadDir, newName),
+      dest: dirname + "\\uploads\\" + newName,
     });
-
     res.status(200).json(newName);
   } catch (error) {
     next(error);
   }
 }
+
+// export async function uploadPhotoByLink(req, res, next) {
+//   const { link } = req.body;
+//   const newName = "photo" + Date.now() + ".jpg";
+//   const uploadDir = path.join(__dirname, "uploads"); // __dirname + "/uploads"; is problematic
+
+//   try {
+//     // Create the uploads directory if it doesn't exist
+//     if (!fs.existsSync(uploadDir)) {
+//       fs.mkdirSync(uploadDir, { recursive: true });
+//     }
+
+//     // Download the image
+//     await download.image({
+//       url: link,
+//       dest: path.join(uploadDir, newName),
+//     });
+
+//     res.status(200).json(newName);
+//   } catch (error) {
+//     next(error);
+//   }
+// }
 
 export async function uploadPhotoByFile(req, res, next) {
   const uploadFile = [];
