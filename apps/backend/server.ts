@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 const baseUrl = "https://book-it-backend.vercel.app";
 app.use(
   "/api/hotels/uploads",
-  express.static(path.join(__dirname, "uploads"), {
+  express.static(path.join(__dirname, "\\uploads"), {
     setHeaders: (res, filePath) => {
       res.setHeader("Access-Control-Allow-Origin", baseUrl);
     },
