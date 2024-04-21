@@ -9,7 +9,7 @@ const PhotosForm = ({ register, addedPhotos, setAddedPhotos }) => {
 
   const addPhotoByLink = async (ev) => {
     ev.preventDefault();
-    const dataWithPhoto = await axios.post("/api/hotels/uploads", {
+    const dataWithPhoto = await axios.post("/api/hotels/uploadByLink", {
       link: photoLink,
     });
 
