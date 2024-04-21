@@ -44,6 +44,8 @@ app.use(
   })
 );
 
+app.use("/api/hotels/uploads", express.static(__dirname + "\\uploads"));
+
 app.use(router);
 
 app.use("/", (req, res) => {
