@@ -37,7 +37,7 @@ router.get("/owner/:id", verifyToken, verifyHotelOwner, getHotelByOwner);
 // get hotels by country
 router.get("/country/:country", getHotelByCountry);
 
-router.post("/uploadByLink", uploadPhotoByLink);
+router.post("/uploads", uploadPhotoByLink);
 
 const photosMiddleware = multer({ dest: path.join(__dirname, "../uploads") });
 router.post(
