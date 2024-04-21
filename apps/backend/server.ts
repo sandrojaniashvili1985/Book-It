@@ -33,18 +33,26 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", "true");
   next();
 });
+app.use(router);
 
 const baseUrl = "https://book-it-backend.vercel.app";
+// app.use(
+//   "/api/hotels/uploads",
+//   express.static(path.join(__dirname, "uploads"), {
+//     setHeaders: (res, filePath) => {
+//       res.setHeader("Access-Control-Allow-Origin", baseUrl);
+//     },
+//   })
+// );
+const uploadDir = path.join(__dirname, "uploads");
 app.use(
   "/api/hotels/uploads",
-  express.static(path.join(__dirname + "uploads"), {
+  express.static(uploadDir, {
     setHeaders: (res, filePath) => {
       res.setHeader("Access-Control-Allow-Origin", baseUrl);
     },
   })
 );
-
-app.use(router);
 
 app.use("/", (req, res) => {
   res.send("server is running...");
@@ -65,6 +73,7 @@ app.use(express.static(path.join(__dirname, "static")));
 app.use("*", express.static(path.join(__dirname, "static/index.html")));
 
 const port = process.env.PORT || 3333;
+
 connectDB().catch(() => process.exit(1));
 
 app.listen(port, () => {
