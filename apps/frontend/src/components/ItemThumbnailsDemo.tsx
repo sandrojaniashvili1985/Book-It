@@ -17,7 +17,7 @@ export default function ItemWithoutThumbnailsDemo({
       setImages(
         data.photos.map((photo) => ({
           id: photo,
-          itemImageSrc: `/${photo}`,
+          itemImageSrc: `${photo}`,
           alt: "photo",
         }))
       );
