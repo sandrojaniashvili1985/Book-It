@@ -72,7 +72,7 @@ export async function getHotelByOwner(req, res, next) {
 
 export async function getHotelByCountry(req, res, next) {
   try {
-    const hotels = await Hotel.find({ city: req.params.country });
+    const hotels = await Hotel.find({ country: req.params.country });
     res.status(200).json(hotels);
   } catch (error) {
     next(error);
