@@ -15,9 +15,5 @@
     "start": "cd apps/backend && npm start"
   },
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^8.2.2"
-  },
-  "dependencies": {}
+  "license": "ISC"
 }

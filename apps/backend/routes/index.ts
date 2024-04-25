@@ -5,6 +5,7 @@ import usersRouter from "./users.route";
 import hotelsRouter from "./hotels.route";
 import roomsRouter from "./rooms.route";
 import bookingRouter from "./booking.route";
+import { uploadPhoto } from "../controller/hotels.controller";
 
 const router = express.Router();
 
@@ -13,5 +14,6 @@ router.use("/api/users", usersRouter);
 router.use("/api/hotels", hotelsRouter);
 router.use("/api/rooms", roomsRouter);
 router.use("/api/booking", bookingRouter);
+router.use("/api/uploadPhotos", uploadPhoto);
 
 export default router;

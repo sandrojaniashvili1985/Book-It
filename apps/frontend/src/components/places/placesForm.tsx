@@ -4,11 +4,11 @@ import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import Heading from "../ui/Heading";
-import Button from "@/components/ui/Button";
-import Input from "@/components/ui/Input";
+import Button from "../ui/Button";
+import Input from "../ui/Input";
 import toast from "react-hot-toast";
 import Perks from "./Perks";
-import PhotosForm from "./PhotosForm";
+import Upload from "./UploadPhotos";
 
 const PlacesForm = () => {
   const [addedPhotos, setAddedPhotos] = useState<string[]>([]);
@@ -28,6 +28,8 @@ const PlacesForm = () => {
       address: "",
       photos: "",
       description: "",
+      perks: [],
+      cheapestPrice: 0,
       extraInfo: "",
       checkIn: "",
       checkOut: "",
@@ -36,6 +38,7 @@ const PlacesForm = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     data.photos = addedPhotos;
+    console.log("addedPhotos form", addedPhotos);
 
     setLoading(true);
     try {
@@ -87,7 +90,7 @@ const PlacesForm = () => {
           required
           placeholder="Title (My lovely hotel, etc.)"
         />
-        <Heading title="Country" subtitle="Country for this place" />
+        <Heading title="country" />
         <Input
           id="country"
           type="text"
@@ -95,7 +98,7 @@ const PlacesForm = () => {
           register={register}
           errors={errors}
           required
-          placeholder="Country of place (USA, etc.)"
+          placeholder="city of place (New York, etc.)"
         />
         <Heading title="Address" subtitle="Address for this place" />
         <Input
@@ -107,10 +110,10 @@ const PlacesForm = () => {
           required
           placeholder="Address of place (1234 Main St, etc.)"
         />
-        <PhotosForm
+        <Upload
           register={register}
-          addedPhotos={addedPhotos}
           setAddedPhotos={setAddedPhotos}
+          addedPhotos={addedPhotos}
         />
         <Heading title="Description" subtitle="Description of the place" />
         <textarea
@@ -124,6 +127,16 @@ const PlacesForm = () => {
           placeholder="Extra info"
           {...register("extraInfo", { required: true })}
           className=" h-32 resize-none rounded-lg p-2 border-2 border-neutral-300 "
+        />
+        <Heading title="cheapest price" subtitle="" />
+        <Input
+          id="price"
+          type="number"
+          disabled={loading}
+          register={register}
+          errors={errors}
+          required
+          placeholder="price for the cheapest room"
         />
         <Heading
           title="Check in & out times"

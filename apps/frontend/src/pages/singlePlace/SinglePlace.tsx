@@ -66,7 +66,7 @@ const SinglePlace = () => {
             {singlePlace.photos.map((photo) => (
               <Image
                 key={Date.now() + Math.random()}
-                src={`https://book-it-backend.vercel.app/api/hotels/uploads/${photo}`}
+                src={`${photo}`}
                 alt="photo"
                 width="250"
                 preview

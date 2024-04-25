@@ -17,7 +17,7 @@ export default function ItemWithoutThumbnailsDemo({
       setImages(
         data.photos.map((photo) => ({
           id: photo,
-          itemImageSrc: `https://book-it-backend.vercel.app/api/hotels/uploads/${photo}`,
+          itemImageSrc: `/${photo}`,
           alt: "photo",
         }))
       );
