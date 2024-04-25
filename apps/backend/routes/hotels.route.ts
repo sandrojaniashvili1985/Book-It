@@ -7,8 +7,6 @@ import {
   getHotelByOwner,
   getHotels,
   updateHotel,
-  uploadPhotoByFile,
-  uploadPhotoByLink,
 } from "../controller/hotels.controller";
 import { verifyHotelOwner, verifyToken } from "../middleware/verify.token";
 import path from "path";
