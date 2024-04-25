@@ -130,7 +130,7 @@ const PlacesForm = () => {
         />
         <Heading title="cheapest price" subtitle="" />
         <Input
-          id="price"
+          id="cheapestPrice"
           type="number"
           disabled={loading}
           register={register}

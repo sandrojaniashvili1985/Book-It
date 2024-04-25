@@ -9,10 +9,10 @@ import { useNavigate } from "react-router-dom";
 
 import {
   FaDoorClosed,
-  // FaPaw,
+  FaPaw,
   FaParking,
   FaTv,
-  // FaUtensils,
+  FaUtensils,
   FaWifi,
 } from "react-icons/fa";
 import Button from "@/components/ui/Button";
@@ -112,6 +112,14 @@ const SinglePlace = () => {
                   <div className="flex gap-2">
                     <FaDoorClosed size={24} />
                     <h1>Privet Entrance</h1>
+                  </div>
+                  <div className="flex gap-2">
+                    <FaUtensils size={24} />
+                    <h1>Restaurant</h1>
+                  </div>
+                  <div className="flex gap-2">
+                    <FaPaw size={24} />
+                    <h1>Pets Allowed</h1>
                   </div>
                 </div>
               </div>
