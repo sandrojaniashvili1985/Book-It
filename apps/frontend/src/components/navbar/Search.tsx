@@ -45,9 +45,9 @@ export default function Search() {
       command: () => setSelectWhere(!selectWhere),
       items: [
         {
-          label: "Indonesia",
+          label: "Turkey",
           icon: "pi pi-fw pi-map-marker",
-          command: () => setCountries("Indonesia"),
+          command: () => setCountries("Turkey"),
         },
         {
           label: "Greece",

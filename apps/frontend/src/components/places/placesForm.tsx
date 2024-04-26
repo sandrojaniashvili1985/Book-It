@@ -38,7 +38,6 @@ const PlacesForm = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     data.photos = addedPhotos;
-    console.log("addedPhotos form", addedPhotos);
 
     setLoading(true);
     try {
