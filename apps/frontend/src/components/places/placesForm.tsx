@@ -98,7 +98,7 @@ const PlacesForm = () => {
           register={register}
           errors={errors}
           required
-          placeholder="city of place (New York, etc.)"
+          placeholder="country of place (USA, etc.)"
         />
         <Heading title="Address" subtitle="Address for this place" />
         <Input
