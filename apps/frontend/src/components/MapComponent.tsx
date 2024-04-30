@@ -64,7 +64,7 @@ function MapComponent({ hotels, zoom = 3 }) {
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onUnmount = React.useCallback(function callback(map) {
+  const onUnmount = React.useCallback(function callback() {
     // setMap(null);
   }, []);
 
