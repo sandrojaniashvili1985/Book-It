@@ -77,7 +77,7 @@ const SinglePlace = () => {
               />
             ))}
           </div>
-          <div className=" relative top-8 flex">
+          <div className=" relative top-8 flex mb-6">
             <div className="">
               <div className="py-4">
                 <h4 className="text-2xl ">{singlePlace.address}</h4>
