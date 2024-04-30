@@ -12,14 +12,14 @@
   "dependencies": {
     "@ant-design/icons": "^5.3.1",
     "@hookform/resolvers": "^3.3.4",
+    "@react-google-maps/api": "^2.19.3",
+    "axios": "^0.24.0",
     "bootstrap": "^5.3.3",
     "i18next": "^23.10.0",
     "i18next-http-backend": "^2.5.0",
-    "react-transition-group": "^4.4.5",
-    "primereact": "^10.5.1",
-    "primeicons": "^6.0.1",
     "primeflex": "^3.3.1",
-    "react-scripts": "5.0.1",
+    "primeicons": "^6.0.1",
+    "primereact": "^10.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.0",
@@ -27,9 +27,10 @@
     "react-i18next": "^14.0.5",
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.22.2",
+    "react-scripts": "5.0.1",
+    "react-transition-group": "^4.4.5",
     "zod": "^3.22.4",
-    "zustand": "^4.5.2",
-    "axios": "^0.24.0"
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.55",

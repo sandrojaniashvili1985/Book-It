@@ -17,6 +17,7 @@ import {
 } from "react-icons/fa";
 import Button from "@/components/ui/Button";
 import useDatePiker from "@/components/hooks/useDatePiker";
+import MapComponent from "@/components/MapComponent";
 
 const SinglePlace = () => {
   const { id } = useParams();
@@ -141,6 +142,7 @@ const SinglePlace = () => {
               </div>
             </div>
           </div>
+          <MapComponent hotels={[singlePlace]} zoom={10} />
         </div>
       </div>
     </div>
